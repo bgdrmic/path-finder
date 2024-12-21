@@ -1,0 +1,65 @@
+I wasn't sure about some examples so here I'll write some edge cases and how I decided to cover them.
+I have opted for these rules because I feel like they are in accordance with the sense and intention of the task
+where I interpreted that the task was meant to implement a greedy algorithm where at each turn there is only one
+option where to go for which we are immediately certain that is forms a valid path.
+
+1. It's possible to pass through double intersection, so this is a valid path.
+   x
+   |
+ @---+
++----+
+|  |
++--+
+
+2. Symbol + requires turning so if there is something in front of it,
+it doesn't matter and it isn't considered a fork. Thus, this is a valid path.
+
+     x
+     |
+@-A-+B
+    ||
+    ++
+
+3. Intersection, but layout is atypical where the symbol in intersection represents the path for the second crossing is considered invalid.
+
+   x
+   |
+@--|-+
+   +-+
+
+I decided this because otherwise, algorith wouldn't be greedy anymore which is obvious from this case
+
+@--|--x
+
+4. When turning on the + sign, it's impossible to turn to a pathway in a wrong direction even if it might be an intersection.
+Thus this is considered invalid.
+
+     x
+     |
+@------+
+   +-+ |
+   |   |
+   +---+
+
+However, this is valid:
+
+     x
+     |
+@----A-+
+   +-+ |
+   +---+
+
+
+
+5. It's impossible to pass through the start. So this is invalid.
+  +----+
+  |    |
++------+
+| @--+
++----+
+  |
+  x
+
+I have opted to forbid this case because it just doesn't feel right.
+
+

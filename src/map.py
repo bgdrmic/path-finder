@@ -37,7 +37,8 @@ class Map:
     def start(self):
         self.curr_loc = self.find_start()
         self.visited = {self.curr_loc}
-        self.path += "@"
+        self.path = "@"
+        self.letters = ""
         self.curr_direction = None
 
     def location_exists(self, loc: Point) -> bool:
